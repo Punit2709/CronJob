@@ -1,20 +1,7 @@
-const https = require('https');
+const url = 'https://eshopdotcom.onrender.com/ping';
 
-const url = 'https://e-commerce-9v8q.onrender.com/ping';
+const CronFetch = async() =>{
+  await fetch(url);
+}
 
-https.get(url, (resp) => {
-  let data = '';
-
-  // A chunk of data has been received.
-  resp.on('data', (chunk) => {
-    data += chunk;
-  });
-
-  // The whole response has been received.
-  resp.on('end', () => {
-    console.log('Website pinged successfully:', data);
-  });
-
-}).on("error", (err) => {
-  console.log("Error: " + err.message);
-});
+CronFetch();
